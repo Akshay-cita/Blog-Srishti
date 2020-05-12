@@ -1,0 +1,18 @@
+{%extends 'blog/base.html'%}
+
+{%block content%}
+<div class="jumbotron">
+  <h2>User Login</h2>
+  <p>Please LogIn!</p>
+  <form  action="{%url 'login_view'%}" method="post">
+    {%csrf_token%}
+    <label for="username">Username:</label>
+    <input type="text" name="username"placeholder="Enter your user name ">
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" placeholder="Enter you password">
+    <input type="submit" name="" value="Login">
+
+  </form>
+</div>
+{%endblock%}
