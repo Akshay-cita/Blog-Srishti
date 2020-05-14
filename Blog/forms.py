@@ -23,6 +23,7 @@ class UserForm(forms.ModelForm):
     class Meta():
         model= User
         fields=('username','email','password')
+
 class UserProfileInfoform(forms.ModelForm):
     class Meta():
         model=UserProfileInfo
