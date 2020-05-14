@@ -5,6 +5,7 @@
 <form class="post-form" method="post">
   {%csrf_token%}
   {{form.as_p}}
+  {{form}}
   <button type="submit" class="save btn btn-default">Post comments</button>
 
 </form>
