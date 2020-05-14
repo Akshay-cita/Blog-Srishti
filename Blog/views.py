@@ -31,7 +31,7 @@ class PostUpdateView(LoginRequiredMixin,UpdateView):
     redirect_field_name = 'blog/post_detail.html'
     form_class = PostForm
     model=Post
-    template_name='post_list.html'
+    
 class PostDeleteView(LoginRequiredMixin,DeleteView):
     model=PostForm
     success_url=reverse_lazy('post_list')
@@ -39,6 +39,7 @@ class DraftListView(LoginRequiredMixin,ListView):
     login_url='/login/'
     redirect_field_name = 'blog/post_list.html'
     model=Post
+    template_name='post_list.html'
     def get_queryset(self):
         return Post.objects.filter(published_date__isnull=True).order_by('create_date')
 ##################################################
@@ -113,7 +114,7 @@ def registerView(request):
 @login_required
 def post_publish(request,pk):
     post=get_object_or_404(Post,pk=pk)
-    post.publish
+    post.publish()
     return redirect('post_detail',pk=pk)
 
 
